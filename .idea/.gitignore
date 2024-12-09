@@ -12,5 +12,5 @@ workspace.xml
 /out/
 *.class
 
-# Arquivos de logs e temporários
+# Arquivos de logs e  temporários
 *.log
