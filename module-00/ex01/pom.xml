@@ -9,7 +9,7 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>ex00</artifactId> <!-- Nome do submódulo -->
+    <artifactId>ex01</artifactId> <!-- Nome do submódulo -->
 
     <dependencies>
         <!-- Dependência do JUnit para testes -->
