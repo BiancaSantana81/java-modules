@@ -1,0 +1,16 @@
+# Default ignored files
+# IntelliJ IDEA
+.idea/
+*.iml
+*.xml
+workspace.xml
+
+# Maven
+/target/
+
+# Diretórios de build e arquivos temporários
+/out/
+*.class
+
+# Arquivos de logs e temporários
+*.log
