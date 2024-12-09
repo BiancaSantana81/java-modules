@@ -6,7 +6,7 @@
 workspace.xml
 
 # Maven
-/target/
+target/
 
 # Diretórios de build e arquivos temporários
 /out/
