@@ -26,4 +26,32 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+
+    <!-- Configuração do plugin Checkstyle -->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-checkstyle-plugin</artifactId>
+                <version>3.1.0</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>checkstyle</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <!-- Caminho para o arquivo de configuração do Checkstyle -->
+                    <configLocation>/home/bsantana/.checkstyle/google_checks.xml</configLocation>
+                    <!-- Diretórios a serem escaneados -->
+                    <sourceDirectories>
+                        <sourceDirectory>/src/</sourceDirectory>
+                        <sourceDirectory>/test/</sourceDirectory>
+                    </sourceDirectories>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
 </project>
