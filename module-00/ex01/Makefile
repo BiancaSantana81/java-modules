@@ -2,6 +2,10 @@
 SRC_DIR=src/main
 OUTPUT_DIR=target/classes
 
+## LIBS
+LIB_DIR=../../lib
+JUNIT_LIB=$(LIB_DIR)/junit.jar:$(LIB_DIR)/engine.jar
+
 ## Arquivos fonte
 SOURCES=$(wildcard $(SRC_DIR)/*.java)
 
