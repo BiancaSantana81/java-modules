@@ -7,7 +7,7 @@ Inspirado no formato didático da 42 (CPP Modules), este repositório é organiz
 
 Este repositório é estruturado em módulos, e cada módulo contém um conjunto de exercícios. Cada exercício possui testes específicos, desenvolvidos com JUnit, para garantir o entendimento prático dos conceitos abordados. Para facilitar o processo de importação da JUnit, compilação e execução dos testes, um Makefile foi desenvolvido para cada exercício.
 
-Veja a seguir a estrutura completa: 
+Veja a seguir um exemplo de estrutura: 
 
 ````
 
