@@ -18,7 +18,7 @@ Veja a seguir a estrutura completa:
 │   ├── ex00/
 |   |   └── Makefile
 |   |   └── src
-│   │      └── classes/ (arquivos de código)
+│   │      └── main/ (arquivos de código)
 |   |      └── test/ (arquivos de teste)
 |   |      └── target/ 
 │   |          ├── classes/       <-- Aqui estão as classes compiladas.
