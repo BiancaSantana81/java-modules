@@ -21,12 +21,7 @@ public class Main {
     PhoneBook phonebook = new PhoneBook();
 
     while (true) {
-      System.out.println(PINK + "Welcome to the phone book!");
-      System.out.println("ADD: add new contact");
-      System.out.println("SEARCH: to search for a contact in the list");
-      System.out.println("EXIT: to exit the program");
-      System.out.print("Enter your option here: " + RESET);
-
+      printMenu();
       input = scanner.nextLine().trim().toLowerCase();
 
       switch (input) {
@@ -44,5 +39,14 @@ public class Main {
           continue;
       }
     }
+  }
+
+  // Método que imprime o cabeçalho com as opções
+  public static void printMenu() {
+    System.out.println(PINK + "Welcome to the phone book!");
+    System.out.println("ADD: Add new contact");
+    System.out.println("SEARCH: Search for a contact in the list");
+    System.out.println("EXIT: Exit the program");
+    System.out.print("Enter your option here: " + RESET);
   }
 }
