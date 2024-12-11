@@ -26,6 +26,7 @@ public class PhoneBook {
     if (currentIndex >= MAX_CONTACTS) {
       System.out.println( RED + "Phone book full! The oldest contact will be replaced with this one." + RESET);
     }
+    int index = currentIndex % MAX_CONTACTS;
 
     while (true) {
       System.out.print("Enter first name: ");
@@ -82,10 +83,9 @@ public class PhoneBook {
       }
     }
 
-    this.phoneBook[currentIndex] = currentContact;
+    this.phoneBook[index] = currentContact;
     System.out.println(GREEN + "Contact added successfully!" + RESET);
-
-    currentIndex = (currentIndex + 1) % phoneBook.length;
+    currentIndex++;
   }
 
   public void searchContact() {
@@ -95,10 +95,16 @@ public class PhoneBook {
       return ;
     }
 
+//    int maxDisplay = 0;
+//    if (currentIndex > 8) {
+//      maxDisplay = currentIndex % MAX_CONTACTS;
+//    }
+
     System.out.printf(BLUE + "%-10s| %-15s| %-15s| %-15s|\n" + RESET, "Index", "First Name", "Last Name", "Nickname");
     System.out.println(BLUE + "--------------------------------------------------------------" + RESET);
 
-    for (int i = 0; i < currentIndex; i++) {
+    // FALTA ARRUMAR O INDEX AQUI: ESTA ESTOURANDO OS LIMITES DE ACESSO
+    for (int i = 0; i < MAX_CONTACTS; i++) {
         System.out.printf("%-10d| %-15s| %-15s| %-15s|\n",
           i + 1,
           this.phoneBook[i].getFirstName(),
