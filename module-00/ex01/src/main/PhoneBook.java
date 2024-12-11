@@ -8,6 +8,7 @@ public class PhoneBook {
   public static final String GREEN = "\033[1;32m";
   public static final String BLUE = "\033[1;34m";
   public static final String RED = "\033[1;31m";
+  public static final String PINK = "\033[1;35m";
 
   /* criação do array de contatos de PhoneBook -
   * em Java eu preciso usar new para criar um array também. */
@@ -76,7 +77,7 @@ public class PhoneBook {
       if (darkestSecret.isEmpty()) {
         System.out.println(RED + "Darkest secret cannot be empty. Please try again." + RESET);
       } else {
-        currentContact.setPhoneNumber(darkestSecret);
+        currentContact.setDarkestSecret(darkestSecret);
         break;
       }
     }
@@ -94,8 +95,6 @@ public class PhoneBook {
       return ;
     }
 
-    int indexContact = currentIndex + 1;
-
     System.out.printf(BLUE + "%-10s| %-15s| %-15s| %-15s|\n" + RESET, "Index", "First Name", "Last Name", "Nickname");
     System.out.println(BLUE + "--------------------------------------------------------------" + RESET);
 
@@ -107,5 +106,36 @@ public class PhoneBook {
           this.phoneBook[i].getNickName()
         );
       }
+
+      Scanner scannerInt = new Scanner(System.in);
+      int index;
+
+      while (true) {
+        System.out.print(PINK + "Enter the contact's index to see more details: " + RESET);
+        if (scannerInt.hasNextInt()) {
+          index = scannerInt.nextInt();
+          if (index >= 1 && index <= currentIndex) {
+            break;
+          } else {
+            System.out.print( RED + "Invalid entry! Enter the contact's index." + RESET);
+          }
+        } else {
+          System.out.print( RED + "Invalid entry! Enter the contact's index." + RESET);
+          scannerInt.next();
+        }
+      }
+      printContactDetails(index - 1);
   }
+
+  public void printContactDetails(int index) {
+
+    Contact contact = phoneBook[index];
+
+    System.out.println(GREEN + "Contact Details:" + RESET);
+    System.out.println("First Name: " + contact.getFirstName());
+    System.out.println("Last Name: " + contact.getLastName());
+    System.out.println("Nickname: " + contact.getNickName());
+    System.out.println("Phone Number: " + contact.getPhoneNumber());
+    System.out.println("Darkest Secret: " + contact.getDarkestSecret());
+    }
 }
