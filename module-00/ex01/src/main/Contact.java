@@ -6,7 +6,7 @@ public class Contact {
   private String firstName;
   private String lastName;
   private String nickName;
-  private int phoneNumber;
+  private String phoneNumber;
   private String darkestSecret;
 
   // construtor (em Java a implementação de destrutor é obsoleta).
@@ -29,7 +29,7 @@ public class Contact {
     return this.nickName;
   }
 
-  public int getPhoneNumber() {
+  public String getPhoneNumber() {
       return this.phoneNumber;
   }
 
@@ -51,7 +51,7 @@ public class Contact {
     this.nickName = nickName;
   }
 
-  public void setPhoneNumber(int phoneNumber) {
+  public void setPhoneNumber(String phoneNumber) {
     this.phoneNumber = phoneNumber;
   }
 

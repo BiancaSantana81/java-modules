@@ -20,8 +20,9 @@ public class Main {
 
     PhoneBook phonebook = new PhoneBook();
 
+    printMenu();
     while (true) {
-      printMenu();
+      System.out.print(PINK + "Type your option here: " + RESET);
       input = scanner.nextLine().trim().toLowerCase();
 
       switch (input) {
@@ -46,7 +47,6 @@ public class Main {
     System.out.println(PINK + "Welcome to the phone book!");
     System.out.println("ADD: Add new contact");
     System.out.println("SEARCH: Search for a contact in the list");
-    System.out.println("EXIT: Exit the program");
-    System.out.print("Enter your option here: " + RESET);
+    System.out.println("EXIT: Exit the program" + RESET);
   }
 }
