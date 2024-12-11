@@ -6,6 +6,7 @@ public class PhoneBook {
 
   public static final String RESET = "\033[0m";
   public static final String GREEN = "\033[1;32m";
+  public static final String BLUE = "\033[1;34m";
   public static final String RED = "\033[1;31m";
 
   /* criação do array de contatos de PhoneBook -
@@ -17,11 +18,13 @@ public class PhoneBook {
 
   public void addContact() {
 
-    Contact currentContact = new Contact();
+    Contact currentContact = new Contact(); // obj para atualizar contato antes de enviar para o array phonebook
+    Scanner scanner = new Scanner(System.in); // receber entrada do usuário
+    String firstName, lastName, nickName, phoneNumber, darkestSecret; // atributos de contato
 
-    Scanner scanner = new Scanner(System.in);
-
-    String firstName, lastName, nickName, phoneNumber, darkestSecret;
+    if (currentIndex >= MAX_CONTACTS) {
+      System.out.println( RED + "Phone book full! The oldest contact will be replaced with this one." + RESET);
+    }
 
     while (true) {
       System.out.print("Enter first name: ");
@@ -57,7 +60,7 @@ public class PhoneBook {
     }
 
     while (true) {
-      System.out.print("Enter phone numer: ");
+      System.out.print("Enter phone number: ");
       phoneNumber =  scanner.nextLine().trim();
       if (phoneNumber.isEmpty()) {
         System.out.println(RED + "Phone number cannot be empty. Please try again." + RESET);
@@ -78,14 +81,31 @@ public class PhoneBook {
       }
     }
 
-    phoneBook[currentIndex] = currentContact;
+    this.phoneBook[currentIndex] = currentContact;
     System.out.println(GREEN + "Contact added successfully!" + RESET);
 
     currentIndex = (currentIndex + 1) % phoneBook.length;
   }
 
   public void searchContact() {
-    System.out.println("pesquisar contato");
-    return;
+
+    if (currentIndex == 0) {
+      System.out.println(RED + "The phone book is empty. Add some contacts." + RESET);
+      return ;
+    }
+
+    int indexContact = currentIndex + 1;
+
+    System.out.printf(BLUE + "%-10s| %-15s| %-15s| %-15s|\n" + RESET, "Index", "First Name", "Last Name", "Nickname");
+    System.out.println(BLUE + "--------------------------------------------------------------" + RESET);
+
+    for (int i = 0; i < currentIndex; i++) {
+        System.out.printf("%-10d| %-15s| %-15s| %-15s|\n",
+          i + 1,
+          this.phoneBook[i].getFirstName(),
+          this.phoneBook[i].getLastName(),
+          this.phoneBook[i].getNickName()
+        );
+      }
   }
 }
