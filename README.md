@@ -29,3 +29,6 @@ Veja a seguir um exemplo de estrutura:
 
 #### Module-00
 
+Este módulo pode ser considerado o meu `hello, world!` em Java. Durante o módulo, realizei dois exercícios introdutórios que foram fundamentais para entender conceitos como a entrada de dados e a manipulação de informações.
+
+#### Module-01
