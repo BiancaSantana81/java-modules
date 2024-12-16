@@ -6,12 +6,13 @@ PINK := \033[1;35m
 LIB_DIR=../../lib
 JUNIT_LIB=$(LIB_DIR)/junit.jar:$(LIB_DIR)/engine.jar
 
-## SOURCES FILES
-SRC_DIR=src/
+## SOURCE FILES
+SRC_DIR=src
 MAIN_DIR=$(SRC_DIR)/main
 TEST_DIR=$(SRC_DIR)/test
+MAIN_FILE=$(SRC_DIR)/Main.java
 
-# OUTPUT DIRECTORY
+## OUTPUT DIRECTORY
 OUTPUT_DIR=target
 OUTPUT=$(OUTPUT_DIR)/classes
 TEST_OUTPUT=$(OUTPUT_DIR)/test-classes
@@ -28,13 +29,13 @@ $(OUTPUT_DIR):
 ## Compilar todos os arquivos juntos
 all: $(OUTPUT) $(TEST_OUTPUT)
 
-$(OUTPUT): $(MAIN_SOURCES) | $(OUTPUT_DIR)
-	@if [ -z "$(MAIN_SOURCES)" ]; then \
-		echo "$(WHITE)Nenhum arquivo fonte encontrado em $(MAIN_DIR)"; \
+$(OUTPUT): $(MAIN_FILE) $(MAIN_SOURCES) | $(OUTPUT_DIR)
+	@if [ -z "$(MAIN_FILE)" ] && [ -z "$(MAIN_SOURCES)" ]; then \
+		echo "$(WHITE)Nenhum arquivo fonte encontrado em $(MAIN_DIR) ou $(SRC_DIR)"; \
 		exit 1; \
 	fi
 	@echo "$(WHITE) Compiling main sources..."
-	javac -cp $(JUNIT_LIB) -d $(OUTPUT) $(MAIN_SOURCES)
+	javac -cp $(JUNIT_LIB) -d $(OUTPUT) $(MAIN_FILE) $(MAIN_SOURCES)
 
 $(TEST_OUTPUT): $(TEST_SOURCES) | $(OUTPUT_DIR)
 	@if [ -z "$(TEST_SOURCES)" ]; then \
@@ -51,8 +52,12 @@ run-tests: $(OUTPUT) $(TEST_OUTPUT)
 
 ## Executar o programa principal
 run: $(OUTPUT)
+	@if [ ! -f "$(OUTPUT)/Main.class" ]; then \
+		echo "$(WHITE)Main.class não encontrado! Certifique-se de que foi compilado corretamente."; \
+		exit 1; \
+	fi
 	@echo "Executando Main..."
-	java -cp $(OUTPUT) main.Main
+	java -cp $(OUTPUT) Main
 
 ## Limpar arquivos compilados
 clean:
