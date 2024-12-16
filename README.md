@@ -32,3 +32,5 @@ Veja a seguir um exemplo de estrutura:
 Este módulo pode ser considerado o meu `hello, world!` em Java. Durante o módulo, realizei dois exercícios introdutórios que foram fundamentais para entender conceitos como a entrada de dados e a manipulação de informações.
 
 #### Module-01
+
+Poliformismo em classes concretas. Sobrescrever métodos que terão um comportante na classe base e outro nas classes filhas.
