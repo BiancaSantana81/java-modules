@@ -23,10 +23,10 @@ public class PhoneBook {
     Scanner scanner = new Scanner(System.in); // receber entrada do usuário
     String firstName, lastName, nickName, phoneNumber, darkestSecret; // atributos de contato
 
-    if (currentIndex >= MAX_CONTACTS) {
+    if (this.currentIndex >= this.MAX_CONTACTS) {
       System.out.println( RED + "Phone book full! The oldest contact will be replaced with this one." + RESET);
     }
-    int index = currentIndex % MAX_CONTACTS;
+    int index = this.currentIndex % this.MAX_CONTACTS;
 
     while (true) {
       System.out.print("Enter first name: ");
@@ -85,26 +85,24 @@ public class PhoneBook {
 
     this.phoneBook[index] = currentContact;
     System.out.println(GREEN + "Contact added successfully!" + RESET);
-    currentIndex++;
+    this.currentIndex++;
   }
 
   public void searchContact() {
 
-    if (currentIndex == 0) {
+    if (this.currentIndex == 0) {
       System.out.println(RED + "The phone book is empty. Add some contacts." + RESET);
       return ;
     }
 
-//    int maxDisplay = 0;
-//    if (currentIndex > 8) {
-//      maxDisplay = currentIndex % MAX_CONTACTS;
-//    }
+    int totalContacts = Math.min(this.currentIndex, this.MAX_CONTACTS); // Número total de contatos disponíveis
+    int startIndex = this.currentIndex >= this.MAX_CONTACTS ? this.currentIndex % this.MAX_CONTACTS : 0; // Ponto de início no array circular
 
     System.out.printf(BLUE + "%-10s| %-15s| %-15s| %-15s|\n" + RESET, "Index", "First Name", "Last Name", "Nickname");
     System.out.println(BLUE + "--------------------------------------------------------------" + RESET);
 
-    // FALTA ARRUMAR O INDEX AQUI: ESTA ESTOURANDO OS LIMITES DE ACESSO
-    for (int i = 0; i < MAX_CONTACTS; i++) {
+    for (int i = 0; i < totalContacts; i++) {
+        int index = (startIndex + i) % this.MAX_CONTACTS;
         System.out.printf("%-10d| %-15s| %-15s| %-15s|\n",
           i + 1,
           this.phoneBook[i].getFirstName(),
@@ -120,7 +118,7 @@ public class PhoneBook {
         System.out.print(PINK + "Enter the contact's index to see more details: " + RESET);
         if (scannerInt.hasNextInt()) {
           index = scannerInt.nextInt();
-          if (index >= 1 && index <= currentIndex) {
+          if (index >= 1 && index <= totalContacts) {
             break;
           } else {
             System.out.print( RED + "Invalid entry! Enter the contact's index." + RESET);

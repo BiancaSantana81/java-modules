@@ -30,6 +30,7 @@ clean:
 fclean: clean
 	rm -rf target
 	@echo "$(PINK) Cleaning all compiled files... 🧼$(WHITE)"
+	@echo "Complete cleaning!"
 
 re: clean all
 

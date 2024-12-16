@@ -37,7 +37,7 @@ public class Main {
           return;
         default:
           System.out.println(RED + "Invalid option! try again..." + RESET);
-          continue;
+          break;
       }
     }
   }
