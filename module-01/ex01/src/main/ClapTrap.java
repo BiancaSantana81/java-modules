@@ -23,7 +23,7 @@ public class ClapTrap {
   // Construtores - padrão e parametrizado
 
   public ClapTrap() {
-    System.out.println(PINK + "ClapTrap:"  + RESET + "default constructor called.");
+    System.out.println(PINK + "ClapTrap: "  + RESET + "default constructor called.");
   }
 
   public ClapTrap(String name) {

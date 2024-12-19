@@ -2,9 +2,15 @@ import main.*;
 
 public class Main {
   public static void main(String[] args) {
-    ScavTrap john = new ScavTrap("John");
-    john.seePoints();
+    ScavTrap whiteHands = new ScavTrap("White Hands");
+    ScavTrap renegade = new ScavTrap("Renegade");
 
-    john.attack("Fulano");
+    whiteHands.attack(renegade.getName());
+    renegade.takeDamage(20);
+
+    whiteHands.seePoints();
+    renegade.seePoints();
+
+    System.out.println("The cruelest battle between one of the first warriors and a deadly Howler!");
   }
 }
