@@ -6,7 +6,7 @@ public class Main {
     ScavTrap renegade = new ScavTrap("Renegade");
 
     whiteHands.attack(renegade.getName());
-    renegade.takeDamage(20);
+    renegade.takeDamage(whiteHands.getAttackDamage());
 
     whiteHands.guardGate();
     renegade.guardGate();
