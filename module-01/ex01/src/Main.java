@@ -8,6 +8,9 @@ public class Main {
     whiteHands.attack(renegade.getName());
     renegade.takeDamage(20);
 
+    whiteHands.guardGate();
+    renegade.guardGate();
+
     whiteHands.seePoints();
     renegade.seePoints();
 
