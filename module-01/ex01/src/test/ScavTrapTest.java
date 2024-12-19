@@ -63,6 +63,8 @@ public class ScavTrapTest {
       scav1.attack("Enemy");
     }
 
+    // tentando recuperar um scav sem energia ou morto
+
     scav1.beRepaired(2);
     scav2.beRepaired(2);
 
