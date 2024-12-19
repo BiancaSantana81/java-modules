@@ -2,6 +2,9 @@ import main.*;
 
 public class Main {
   public static void main(String[] args) {
-    System.out.println("Hello, ex01!");
+    ScavTrap john = new ScavTrap("John");
+    john.seePoints();
+
+    john.attack("Fulano");
   }
 }
