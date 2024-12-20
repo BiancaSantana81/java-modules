@@ -33,4 +33,7 @@ Este módulo pode ser considerado o meu `hello, world!` em Java. Durante o módu
 
 #### Module-01
 
-Poliformismo em classes concretas. Sobrescrever métodos que terão um comportante na classe base e outro nas classes filhas.
+Neste módulo, aprendi sobre herança e polimorfismo em classes concretas.
+
+
+*** refazer as listas 04, 05, 07 e 09 de CPP em Java
