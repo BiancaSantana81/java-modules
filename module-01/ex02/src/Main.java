@@ -28,6 +28,5 @@ public class Main {
       idugu.highFivesGuys();
     }
     System.out.println("Gods must not succumb to the human desire for war!");
-
   }
 }
